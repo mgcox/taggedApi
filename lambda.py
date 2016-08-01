@@ -3,7 +3,7 @@ from __future__ import print_function
 import json
 
 import hashids
-
+import itertools
 from hashids import Hashids
 
 def reduceBrand(brand):
@@ -14,6 +14,10 @@ def reduceBrand(brand):
         if index != 0 or index != len(newstr):
             if x in vowels:
                 newstr = newstr.replace(x, "")
+
+
+    #remove duplicates
+    newstr = ''.join(ch for ch, _ in itertools.groupby(newstr))
 
 
     return newstr
